@@ -19,14 +19,17 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/RRRenJ/RRRMBProgressHUD.git", :tag => s.version }
 
-  s.public_header_files = "RRRMBProgressHUD/RRRMBProgressHUD.h"
+  s.public_header_files = "RRRMBProgressHUD/MBProgressHUD+RRR.h"
 
   s.source_files  = "RRRMBProgressHUD/*.{h,m}"
+  ss.resource     = 'RRRMBProgressHUD/RRRMBProgressHUD.bundle'
+  s.dependency 'MBProgressHUD'
+
 
   s.requires_arc = true
   s.frameworks   = 'UIKit', 'Foundation'
   s.platform     = :ios, "8.0"
-  s.dependency 'MBProgressHUD'
+
   s.user_target_xcconfig = {'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'}
 
   s.xcconfig     = {'OTHER_LDFLAGS' => '-ObjC'}
