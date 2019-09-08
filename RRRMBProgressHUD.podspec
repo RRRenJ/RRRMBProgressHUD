@@ -22,7 +22,7 @@ Pod::Spec.new do |s|
   s.public_header_files = "RRRMBProgressHUD/MBProgressHUD+RRR.h"
 
   s.source_files  = "RRRMBProgressHUD/*.{h,m}"
-  ss.resource     = 'RRRMBProgressHUD/RRRMBProgressHUD.bundle'
+  s.resource     = 'RRRMBProgressHUD/RRRMBProgressHUD.bundle'
   s.dependency 'MBProgressHUD'
 
 
