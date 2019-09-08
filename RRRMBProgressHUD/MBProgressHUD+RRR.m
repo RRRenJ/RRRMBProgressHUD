@@ -13,7 +13,7 @@
 #define MBP_NavBarHeight 44.0
 
 
-#define MBP_TopHeight (StatusBarHeight + NavBarHeight)
+#define MBP_TopHeight (MBP_StatusBarHeight + MBP_NavBarHeight)
 
 
 @implementation MBProgressHUD (RRR)
