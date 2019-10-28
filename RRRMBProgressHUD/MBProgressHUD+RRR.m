@@ -23,7 +23,7 @@
  *  @param icon 图标
  *  @param view 显示的视图
  */
-+ (void)show:(NSString *)text icon:(NSString *)icon view:(UIView *)view{
++ (void)show:(NSString *)text icon:(UIImage *)icon view:(UIView *)view{
     
     MBProgressHUD *hud = [MBProgressHUD showHUDAddedTo:view animated:YES];
     hud.mode = MBProgressHUDModeCustomView;
@@ -38,7 +38,7 @@
     hud.margin = 15;
     if (icon) {
         // 设置图片
-        hud.customView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:icon]];
+        hud.customView = [[UIImageView alloc] initWithImage:icon];
         hud.minSize = CGSizeMake(160, 90);
     }
     hud.removeFromSuperViewOnHide = YES;
@@ -85,8 +85,13 @@
         view = [UIApplication sharedApplication].keyWindow;
     }
     [self hideHUDForView:view];
+    NSBundle *bundle = [NSBundle bundleForClass:[MBProgressHUD class]];
+    NSURL *url = [bundle URLForResource:@"RRRMBProgressHUD" withExtension:@"bundle"];
+    NSBundle *imageBundle = [NSBundle bundleWithURL:url];
+    UIImage * successImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"success" ofType:@"png"]];
     
-    [self show:success icon:@"RRRMBProgressHUD.bundle/success.png" view:view];
+    
+    [self show:success icon:successImage view:view];
 }
 
 /**
@@ -110,7 +115,11 @@
     }
     [self hideHUDForView:view];
     
-    [self show:error icon:@"RRRMBProgressHUD.bundle/error.png" view:view];
+    NSBundle *bundle = [NSBundle bundleForClass:[MBProgressHUD class]];
+    NSURL *url = [bundle URLForResource:@"RRRMBProgressHUD" withExtension:@"bundle"];
+    NSBundle *imageBundle = [NSBundle bundleWithURL:url];
+    UIImage * errorImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error" ofType:@"png"]];
+    [self show:error icon:errorImage view:view];
 }
 
 /**
@@ -217,7 +226,6 @@
     }
     [self hideAnimated:YES afterDelay:0.1];
 }
-
 
 
 

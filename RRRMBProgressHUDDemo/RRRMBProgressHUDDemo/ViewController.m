@@ -17,7 +17,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [MBProgressHUD showProgressMessage:@"xxxx" toView:self.view];
+//    [MBProgressHUD showProgressMessage:@"xxxx" toView:self.view];
+    [MBProgressHUD showSuccess:@"xxx" toView:self.view];
+    
 }
 
 
