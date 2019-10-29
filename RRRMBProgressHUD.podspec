@@ -23,11 +23,11 @@ Pod::Spec.new do |s|
 
   s.source_files  = "RRRMBProgressHUD/*.{h,m}"
   s.resource     = 'RRRMBProgressHUD/RRRMBProgressHUD.bundle'
-
+  s.dependency 'MBProgressHUD'
 
 
   s.requires_arc = true
-  s.frameworks   = 'UIKit', 'Foundation','CoreGraphics','QuartzCore'
+  s.frameworks   = 'UIKit', 'Foundation'
   s.platform     = :ios, "8.0"
 
   s.user_target_xcconfig = {'CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES' => 'YES'}
