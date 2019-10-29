@@ -85,12 +85,11 @@
         view = [UIApplication sharedApplication].keyWindow;
     }
     [self hideHUDForView:view];
-    NSBundle *bundle = [NSBundle bundleForClass:[MBProgressHUD class]];
+    NSBundle *bundle = [NSBundle mainBundle];
     NSURL *url = [bundle URLForResource:@"RRRMBProgressHUD" withExtension:@"bundle"];
     NSBundle *imageBundle = [NSBundle bundleWithURL:url];
     UIImage * successImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"success" ofType:@"png"]];
-    
-    
+
     [self show:success icon:successImage view:view];
 }
 
@@ -115,7 +114,7 @@
     }
     [self hideHUDForView:view];
     
-    NSBundle *bundle = [NSBundle bundleForClass:[MBProgressHUD class]];
+    NSBundle *bundle = [NSBundle mainBundle];
     NSURL *url = [bundle URLForResource:@"RRRMBProgressHUD" withExtension:@"bundle"];
     NSBundle *imageBundle = [NSBundle bundleWithURL:url];
     UIImage * errorImage = [UIImage imageWithContentsOfFile:[imageBundle pathForResource:@"error" ofType:@"png"]];
